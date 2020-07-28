@@ -1,6 +1,6 @@
 # Brewer & Marlow
 
-QGIS3 Processing Chain to analyze DTM with slope and aspect.
+QGIS3 Processing Chain to analyze DTM with slope (steepness) and aspect (direction).
 
 
 <img src="/map_example.png" ></img>
@@ -20,8 +20,8 @@ QGIS3 Processing Chain to analyze DTM with slope and aspect.
  # Second Step
   
   Use the Mosaic to create two rasters :
-    - a raster for slopes
-    - a raster for aspect
+    - a raster for slopes 
+    - a raster for aspect 
     
   The script is using grass tool "r.slope.aspect"
   
@@ -67,7 +67,7 @@ slope = [
     - 8 : steep slope
    
    The script is using grass tool "r.mapcalc.simple".
-   Once the raster is created we add the style.
+   Once the raster is created we add the style. The colors are based on the aspect. The saturation on the steepness.
   
 
 Processing Chain based on this article by Jon Reades :

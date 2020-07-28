@@ -6,7 +6,7 @@ dtm_path = ""
 # PATH FOR OUTPUT FILES
 output_path = ""
 # PATH AND NAME OF SLD FILE
-style = output_path + "Aspect_Slope_Style.qml"
+style = "" + "Aspect_Slope_Style.qml"
 # RASTER TYPE TO FETCH
 types = ('*.jpg', '*.asc', '*.tif', '*.png')
 # COORDINATE REFERENCE SYSTEM

@@ -89,8 +89,8 @@ processing.run("grass7:r.slope.aspect", {
   'GRASS_RASTER_FORMAT_OPT':'',
   'GRASS_RASTER_FORMAT_META':''
 })
-processing.run("gdal:assignprojection", {'INPUT':slope,'CRS':QgsCoordinateReferenceSystem('EPSG:2154')})
-processing.run("gdal:assignprojection", {'INPUT':aspect,'CRS':QgsCoordinateReferenceSystem('EPSG:2154')})
+processing.run("gdal:assignprojection", {'INPUT':slope,'CRS':QgsCoordinateReferenceSystem('EPSG:'+crs)})
+processing.run("gdal:assignprojection", {'INPUT':aspect,'CRS':QgsCoordinateReferenceSystem('EPSG:'+crs)})
 slope_layer = iface.addRasterLayer(slope, '')
 aspect_layer = iface.addRasterLayer(aspect, '')
 
@@ -117,8 +117,8 @@ processing.run("grass7:r.reclass", {
   'GRASS_RASTER_FORMAT_OPT':'',
   'GRASS_RASTER_FORMAT_META':''
 })
-processing.run("gdal:assignprojection", {'INPUT':slope_reclass,'CRS':QgsCoordinateReferenceSystem('EPSG:2154')})
-processing.run("gdal:assignprojection", {'INPUT':aspect_reclass,'CRS':QgsCoordinateReferenceSystem('EPSG:2154')})
+processing.run("gdal:assignprojection", {'INPUT':slope_reclass,'CRS':QgsCoordinateReferenceSystem('EPSG:'+crs)})
+processing.run("gdal:assignprojection", {'INPUT':aspect_reclass,'CRS':QgsCoordinateReferenceSystem('EPSG:'+crs)})
 slope_reclass_layer = iface.addRasterLayer(slope_reclass, '')
 aspect_reclass_layer = iface.addRasterLayer(aspect_reclass, '')
 
@@ -135,7 +135,7 @@ processing.run("grass7:r.mapcalc.simple", {
   'GRASS_RASTER_FORMAT_OPT':'',
   'GRASS_RASTER_FORMAT_META':''
 })
-processing.run("gdal:assignprojection", {'INPUT':add_intensity_aspect,'CRS':QgsCoordinateReferenceSystem('EPSG:2154')})
+processing.run("gdal:assignprojection", {'INPUT':add_intensity_aspect,'CRS':QgsCoordinateReferenceSystem('EPSG:'+crs)})
 add_intensity_aspect_layer = iface.addRasterLayer(add_intensity_aspect, '')
 
 # LOAD STYLE

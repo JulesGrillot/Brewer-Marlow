@@ -2,7 +2,7 @@
 
 QGIS3 Processing Chain to analyze DTM with slope and aspect.
 
-
+<img src="/map_example.png" ></img>
 
 
 Processing Chain based on this article by Jon Reades :

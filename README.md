@@ -25,7 +25,7 @@ QGIS3 Processing Chain to analyze DTM with slope (steepness) and aspect (directi
     
   The script is using grass tool "r.slope.aspect"
   
- # Thirs Step
+ # Third Step
   
    Those rasters need to be reclassified.
    We need to create rules for each raster. Those rules can be changed if needed.

@@ -7,12 +7,12 @@ https://kingsgeocomputation.org/2016/03/16/aspect-slope-maps-in-qgis/
 
 <img src="/map_example.png" ></img>
 
-# Data needed for this operation
+## Data needed for this operation
 
  - DTM
  - Style file
  
- # First Step
+## First Step
  
   Fetch the DTM in the input path, check their projection and then mosaic them. 
 
@@ -22,16 +22,16 @@ The script is using :
 - saga tool "mosaic raster layers"
 
  
- # Second Step
+## Second Step
   
   Use the Mosaic to create two rasters :
 
 - a raster for slopes 
 - a raster for aspect
     
-  The script is using grass tool "r.slope.aspect"
+ The script is using grass tool "r.slope.aspect"
   
- # Third Step
+## Third Step
   
    Those rasters need to be reclassified.
    We need to create rules for each raster. Those rules can be changed if needed.
@@ -61,7 +61,7 @@ slope = [
 ```
   We can now launch the reclassification using grass tool "r.reclass".
   
- # Fourth Step
+## Fourth Step
    
    Combine the rasters to make one file. 
    

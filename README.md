@@ -5,7 +5,6 @@ QGIS3 Processing Chain to analyze DTM with slope (steepness) and aspect (directi
 Processing Chain based on this article by Jon Reades, I recommend you to read it for further information :
 https://kingsgeocomputation.org/2016/03/16/aspect-slope-maps-in-qgis/
 
-
 <img src="/map_example.png" ></img>
 
 # Data needed for this operation
@@ -16,15 +15,19 @@ https://kingsgeocomputation.org/2016/03/16/aspect-slope-maps-in-qgis/
  # First Step
  
   Fetch the DTM in the input path, check their projection and then mosaic them. 
-  The script is using : 
-    - gdal tool "assign projection".
-    - saga tool "mosaic raster layers"
+
+The script is using :
+
+- gdal tool "assign projection"
+- saga tool "mosaic raster layers"
+
  
  # Second Step
   
   Use the Mosaic to create two rasters :
-    - a raster for slopes 
-    - a raster for aspect 
+
+- a raster for slopes 
+- a raster for aspect
     
   The script is using grass tool "r.slope.aspect"
   
@@ -60,9 +63,12 @@ slope = [
   
  # Fourth Step
    
-   Combine the rasters to make one file. Every pixel have a value between 10 and 88. 
+   Combine the rasters to make one file. 
+   
+   Every pixel have a value between 10 and 88. 
    The tens digit indicates the aspect, a number represent an angle of 45°.
    The units digit indicates the slope :
+   
     - 0 : gentle slope
     - 2 : moderate slope
     - 4 : strong slope
@@ -70,4 +76,5 @@ slope = [
     - 8 : steep slope
    
    The script is using grass tool "r.mapcalc.simple".
+   
    Once the raster is created we add the style. The colors are based on the aspect. The saturation on the steepness.

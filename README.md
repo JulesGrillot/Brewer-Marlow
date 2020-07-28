@@ -2,6 +2,9 @@
 
 QGIS3 Processing Chain to analyze DTM with slope (steepness) and aspect (direction).
 
+Processing Chain based on this article by Jon Reades, I recommend you to read it for further information :
+https://kingsgeocomputation.org/2016/03/16/aspect-slope-maps-in-qgis/
+
 
 <img src="/map_example.png" ></img>
 
@@ -68,7 +71,3 @@ slope = [
    
    The script is using grass tool "r.mapcalc.simple".
    Once the raster is created we add the style. The colors are based on the aspect. The saturation on the steepness.
-  
-
-Processing Chain based on this article by Jon Reades :
-https://kingsgeocomputation.org/2016/03/16/aspect-slope-maps-in-qgis/

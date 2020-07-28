@@ -27,7 +27,7 @@ QGIS3 Processing Chain to analyze DTM with slope and aspect.
   
  # Thirs Step
   
-   Those rasters need to be reclassified to have each 8 categories.
+   Those rasters need to be reclassified.
    We need to create rules for each raster. Those rules can be changed if needed.
    
 ```python
@@ -57,9 +57,17 @@ slope = [
   
  # Fourth Step
    
-   Combine the rasters to make one file.
+   Combine the rasters to make one file. Every pixel have a value between 10 and 88. 
+   The tens digit indicates the aspect, a number represent an angle of 45°.
+   The units digit indicates the slope :
+    - 0 : gentle slope
+    - 2 : moderate slope
+    - 4 : strong slope
+    - 6 : very strong slope
+    - 8 : steep slope
+   
    The script is using grass tool "r.mapcalc.simple".
-   Once the raster created we add the style.
+   Once the raster is created we add the style.
   
 
 Processing Chain based on this article by Jon Reades :

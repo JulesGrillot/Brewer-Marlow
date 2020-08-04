@@ -5,7 +5,7 @@ from osgeo import gdal, osr
 dtm_path = ""
 # PATH FOR OUTPUT FILES
 output_path = ""
-# PATH AND NAME OF SLD FILE
+# PATH AND NAME OF STYLE FILE
 style = "" + "Aspect_Slope_Style.qml"
 # RASTER TYPE TO FETCH
 types = ('*.jpg', '*.asc', '*.tif', '*.png')
@@ -49,7 +49,7 @@ fslope.close()
 # FETCHING ALL RASTER IN INPUT PATH
 files_grabbed = []
 crs= str (crs)
-os.chdir(dtm_path + '/')
+os.chdir(dtm_path)
 for raster in types:
     files_grabbed.extend(glob.glob(dtm_path+raster))
     print(files_grabbed)

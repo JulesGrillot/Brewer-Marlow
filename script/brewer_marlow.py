@@ -5,11 +5,11 @@ from osgeo import gdal, osr
 dtm_path = ""
 # PATH FOR OUTPUT FILES
 output_path = ""
-# PATH AND NAME OF SLD FILE
+# PATH AND NAME OF STYLE FILE
 style = "" + "Aspect_Slope_Style.qml"
 # RASTER TYPE TO FETCH
 types = ('*.jpg', '*.asc', '*.tif', '*.png')
-# COORDINATE REFERENCE SYSTEM
+# COORDINATE REFERENCE SYSTEM (INTEGER FORMAT, EXAMPLE : 4326)
 crs=
 
 ### CREATION OF ASPECT (DEGREES) AND SLOPE (POURCENT) CLASSIFICATION TEXT
@@ -43,10 +43,13 @@ fslope.writelines(slope)
 fslope.close()
 
 ### PROCESSING START
+
+###### STEP 1 ######
+
 # FETCHING ALL RASTER IN INPUT PATH
 files_grabbed = []
 crs= str (crs)
-os.chdir(dtm_path + '/')
+os.chdir(dtm_path)
 for raster in types:
     files_grabbed.extend(glob.glob(dtm_path+raster))
     print(files_grabbed)
@@ -69,6 +72,9 @@ processing.run("saga:mosaicrasterlayers", {
 })
 processing.run("gdal:assignprojection", {'INPUT':mosaic,'CRS':QgsCoordinateReferenceSystem('EPSG:'+crs)})
 mosaic_layer = iface.addRasterLayer(mosaic, '')
+
+
+###### STEP 2 ######
 
 # CREATION OF ASPECT AND SLOPE STYLE
 slope = output_path + 'intensity_slope' + '.tif'
@@ -93,6 +99,9 @@ processing.run("gdal:assignprojection", {'INPUT':slope,'CRS':QgsCoordinateRefere
 processing.run("gdal:assignprojection", {'INPUT':aspect,'CRS':QgsCoordinateReferenceSystem('EPSG:'+crs)})
 slope_layer = iface.addRasterLayer(slope, '')
 aspect_layer = iface.addRasterLayer(aspect, '')
+
+
+###### STEP 3 ######
 
 # CLASSIFICATION WITH TXT FILES
 slope_reclass = output_path + 'intensity_slope_reclass' + '.tif'
@@ -121,6 +130,9 @@ processing.run("gdal:assignprojection", {'INPUT':slope_reclass,'CRS':QgsCoordina
 processing.run("gdal:assignprojection", {'INPUT':aspect_reclass,'CRS':QgsCoordinateReferenceSystem('EPSG:'+crs)})
 slope_reclass_layer = iface.addRasterLayer(slope_reclass, '')
 aspect_reclass_layer = iface.addRasterLayer(aspect_reclass, '')
+
+
+###### STEP 4 ######
 
 # RASTER CALCULATOR TO ADD BOTH RASTERS
 add_intensity_aspect = output_path + 'add_intensity_aspect' + '.tif'

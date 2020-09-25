@@ -16,6 +16,7 @@ crs=
 # ASPECT
 aspect_reclass_txt = output_path + "aspect_reclass.txt"
 aspect = [
+    "-9999 thru -0.1 = 00 \n",
     "0.0 thru 22.499 = 10 \n",
     "22.5 thru 67.499 = 20 \n",
     "67.5 thru 112.499 = 30 \n",
@@ -82,10 +83,10 @@ aspect = output_path + 'aspect_slope' + '.tif'
 processing.run("grass7:r.slope.aspect", {
   'elevation':mosaic,
   'format':1,
-  'precision':0,
+  'precision':1,
   '-a':True,
   '-e':False,
-  '-n':False,
+  '-n':True,
   'zscale':1,
   'min_slope':0,
   'slope':slope,

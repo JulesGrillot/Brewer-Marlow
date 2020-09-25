@@ -76,5 +76,3 @@ slope = [
 
 Processing Chain based on this article by Jon Reades :
 https://kingsgeocomputation.org/2016/03/16/aspect-slope-maps-in-qgis/
-=======
->>>>>>> master
